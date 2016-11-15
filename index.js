@@ -17,7 +17,8 @@ const initialView = Todos(state.todos, markItemDone)
 document.body.appendChild(initialView)
 
 function markItemDone (index) {
-  state.todos[index].isDone = true
+  if (state.todos[index].isDone) state.todos[index].isDone = false
+  else state.todos[index].isDone = true
   const newView = Todos(state.todos, markItemDone)
   morph(initialView, newView)
 }
